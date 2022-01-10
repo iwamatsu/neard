@@ -8,13 +8,11 @@ pkgincludedir = ${includedir}/near
 pkginclude_HEADERS = include/types.h include/log.h include/plugin.h \
 			include/tag.h include/adapter.h include/ndef.h \
 			include/tlv.h include/setting.h include/device.h \
-			include/nfc_copy.h include/snep.h
-
-nodist_include_HEADERS = include/version.h
+			include/nfc_copy.h include/snep.h include/version.h
 
 noinst_HEADERS = include/dbus.h
 
-local_headers = $(foreach file,$(pkginclude_HEADERS) $(nodist_include_HEADERS) \
+local_headers = $(foreach file,$(pkginclude_HEADERS) \
 			$(noinst_HEADERS), include/near/$(notdir $(file)))
 
 gdbus_sources = gdbus/gdbus.h gdbus/mainloop.c gdbus/watch.c \
